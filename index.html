@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Host JSON Array in Firebase</title>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    input { padding: 10px; margin: 5px; width: 300px; }
+    button { padding: 10px 15px; margin: 10px 0; }
+    #status { color: green; margin-top: 10px; }
+  </style>
+</head>
+<body>
+
+<h2>Store JSON like [{"id":"","data":""},...]</h2>
+
+<input type="text" id="idInput" placeholder="Enter ID">
+<br>
+<input type="text" id="dataInput" placeholder="Enter Data">
+<br>
+<button onclick="addData()">➕ Add to JSON</button>
+
+<p id="status"></p>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyAQ6rWK5_X7zBnYDx1JpZQZ_l7nXbJ-_sI",
+    authDomain: "post-builder-45316.firebaseapp.com",
+    databaseURL: "https://post-builder-45316-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "post-builder-45316",
+    storageBucket: "post-builder-45316.firebasestorage.app",
+    messagingSenderId: "16192058743",
+    appId: "1:16192058743:web:a1b16dac53134b06929d72"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
+
+  function addData() {
+    const id = document.getElementById("idInput").value.trim();
+    const data = document.getElementById("dataInput").value.trim();
+    const status = document.getElementById("status");
+
+    if (!id || !data) {
+      status.style.color = 'red';
+      status.innerText = "❌ Both ID and Data are required.";
+      return;
+    }
+
+    const newEntry = { id: id, data: data };
+
+    db.ref('allData').once('value').then(snapshot => {
+      let currentData = snapshot.val() || [];
+      if (!Array.isArray(currentData)) currentData = [];
+
+      currentData.push(newEntry);
+
+      db.ref('allData').set(currentData)
+        .then(() => {
+          status.style.color = 'green';
+          status.innerText = "✅ Data added successfully!";
+          document.getElementById("idInput").value = "";
+          document.getElementById("dataInput").value = "";
+        })
+        .catch(err => {
+          status.style.color = 'red';
+          status.innerText = "❌ Error: " + err.message;
+        });
+
+    });
+  }
+</script>
+
+</body>
+</html>
