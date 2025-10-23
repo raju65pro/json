@@ -1,8 +1,10 @@
 [
-{"title":"Check",
-"content":"<h1>hi</h1>"
-},
-{"title":"Check",
-"content":"<h1>hi</h1>"
-}
+  {
+    "title": "First Post",
+    "content": "<p>This is the <b>first</b> post.</p>"
+  },
+  {
+    "title": "Second Post",
+    "content": "<p>Welcome to the <i>second</i> post.</p>"
+  }
 ]
