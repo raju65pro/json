@@ -1,7 +1,8 @@
 [
 {"title":"check 1",
-"content":"<h1>hi<h1>"
+"content":"<h1>hi</h1>"
 },
-{
+{"title":"check 2",
+"content":"<h1>hi</h1>"
 }
 ]
