@@ -1,10 +1,12 @@
 [
   {
     "title": "First Post",
-    "content": "<p>This is the <b>first</b> post.</p>"
+    "content": "<p>This is the <b>first</b> post.</p>",
+"position":2
   },
   {
     "title": "Second Post",
-    "content": "<p>Welcome to the <i>second</i> post.</p>"
+    "content": "<p>Welcome to the <i>second</i> post.</p>",
+"position":1
   }
 ]
