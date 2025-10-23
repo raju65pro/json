@@ -2,11 +2,11 @@
   {
     "title": "First Post",
     "content": "<p>This is the <b>first</b> post.</p>",
-"position":2
+    "position": 2
   },
   {
-    "title": "Second Post",
-    "content": "<p>Welcome to the <i>second</i> post.</p>",
-"position":1
+    "title": "Video 1",
+    "content": "<iframe src=\"https://streama2z.site/embed-poawqkirha9e.html\" scrolling=\"no\" frameborder=\"0\" width=\"\" height=\"400\" allowfullscreen=\"true\" webkitallowfullscreen=\"true\" mozallowfullscreen=\"true\"></iframe> </center>",
+    "position": 1
   }
 ]
